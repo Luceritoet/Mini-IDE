@@ -11,7 +11,7 @@ Un IDE web interactivo que implementa análisis léxico, sintáctico y una máqu
 
 ## 🎨 Diseño de Interfaz 🌈
 
-El Mini IDE Web presenta un diseño super kawaii con una paleta de colores en tonos rosados y morados, creando una experiencia visual única y adorable:
+El Mini IDE Web presenta un diseño super bonito con una paleta de colores en tonos rosados y morados, creando una experiencia visual única y adorable:
 
 ![Interfaz](interfaz.jpg)
 ![Interfaz](interfaz2.jpg)
@@ -36,10 +36,8 @@ El Mini IDE Web presenta un diseño super kawaii con una paleta de colores en to
   - Identificadores: `a, b, c, d, x,` ✨
   - Números: `0-9` 🔢
   - Operadores: `+, -, *, /, =` ➕
-  - Delimitadores: `;` 📝
 - **Errores léxicos:**
   - Símbolos no reconocidos: `@, &, $` ❌
-  - Caracteres inválidos 🚫
 ![Interfaz](lexico.jpg)
 
 ### Análisis Sintáctico 🎨
@@ -72,7 +70,7 @@ El Mini IDE Web presenta un diseño super kawaii con una paleta de colores en to
 - **Frontend:**
   - Editor de código interactivo ✨
   - Resaltado de errores en tiempo real 🎯
-  - Diseño responsivo y kawaii 🌈
+  - Diseño bonito y organizado 🌈
   - Modo oscuro/claro 🌙☀️
 
 - **Backend:**
@@ -105,18 +103,11 @@ El Mini IDE Web presenta un diseño super kawaii con una paleta de colores en to
 - Navegador web moderno 🌐
 - Conexión a internet (para CDN de CodeMirror) 💫
 
-## 🌈 Personalización 💖
-
-El sistema incluye elementos super kawaii como:
-- Diseño con tema personalizado y adorable 🎨
-- Emojis y elementos decorativos ✨
-- Mensajes de error informativos y amigables 💭
-- Interfaz intuitiva y kawaii 🌸
-
 ## 🤝 Contribuciones 🌟
 
 Este proyecto fue desarrollado como parte del curso de Lenguajes y Autómatas I. Las mejoras y sugerencias son bienvenidas 💝
-![Interfaz](conejito.jpg)
+
+<img src="conejito.jpg" alt="Interfaz" width="300">
 
 ---
 Desarrollado con 💖 por Lucero Enriquez ✨
