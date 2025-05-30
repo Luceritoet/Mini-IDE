@@ -1,24 +1,24 @@
-# 🌟 Mini IDE Web - Analizador Léxico, Sintáctico y Máquina de Turing
+# 🌸 Mini IDE Web - Analizador Léxico, Sintáctico y Máquina de Turing 🎀
 
-Un IDE web interactivo que implementa análisis léxico, sintáctico y una máquina de Turing, desarrollado con Flask y diseñado con una interfaz moderna y amigable.
+Un IDE web interactivo que implementa análisis léxico, sintáctico y una máquina de Turing, desarrollado con Flask y diseñado con una interfaz super kawaii y amigable ✨
 
-## 👩‍💻 Datos del Estudiante
+## 👩‍💻 Datos del Estudiante 💖
 
-- **Nombre:** Enriquez Torres Lucero
-- **Materia:** Lenguajes y Autómatas I
-- **Profesor:** Molina Gomez Kevin David 
-- **Semestre:** 6to Semestre
+- **Nombre:** Enriquez Torres Lucero 🌺
+- **Materia:** Lenguajes y Autómatas I 📚
+- **Profesor:** Molina Gomez Kevin David 👨‍🏫
+- **Semestre:** 6to Semestre 🎓
 
-## 🎨 Diseño de Interfaz
+## 🎨 Diseño de Interfaz 🌈
 
-El Mini IDE Web presenta un diseño moderno y amigable con una paleta de colores en tonos rosados y morados, creando una experiencia visual única y agradable:
+El Mini IDE Web presenta un diseño super kawaii con una paleta de colores en tonos rosados y morados, creando una experiencia visual única y adorable:
 
 ![Interfaz](interfaz.jpg)
 ![Interfaz](interfaz2.jpg)
 
-## 🚀 Instrucciones de Ejecución
+## 🚀 Instrucciones de Ejecución ⭐
 
-1. Asegúrate de tener Python 3.13 instalado
+1. Asegúrate de tener Python 3.13 instalado 🐍
 2. Instala las dependencias:
    ```bash
    pip install flask
@@ -27,21 +27,22 @@ El Mini IDE Web presenta un diseño moderno y amigable con una paleta de colores
    ```bash
    python app.py
    ```
-4. Abre tu navegador en `http://localhost:5000`
+4. Abre tu navegador en `http://localhost:5000` 🌐
 
-## 📝 Especificación del Lenguaje
+## 📝 Especificación del Lenguaje 💫
 
-### Análisis Léxico
+### Análisis Léxico 🎯
 - **Tokens válidos:**
-  - Identificadores: `a, b, c, d, x,`
-  - Números: `0-9`
-  - Operadores: `+, -, *, /, =`
-  - Delimitadores: `;`
+  - Identificadores: `a, b, c, d, x,` ✨
+  - Números: `0-9` 🔢
+  - Operadores: `+, -, *, /, =` ➕
+  - Delimitadores: `;` 📝
 - **Errores léxicos:**
-  - Símbolos no reconocidos: `@, &, $`
-  - Caracteres inválidos
+  - Símbolos no reconocidos: `@, &, $` ❌
+  - Caracteres inválidos 🚫
 ![Interfaz](lexico.jpg)
-### Análisis Sintáctico
+
+### Análisis Sintáctico 🎨
 - **Gramática:**
   ```
   expresion → identificador = numero operador numero;
@@ -50,71 +51,72 @@ El Mini IDE Web presenta un diseño moderno y amigable con una paleta de colores
   operador → [+-*/]
   ```
 - **Errores sintácticos:**
-  - Falta de operador de asignación
-  - Expresiones incompletas
-  - Números faltantes
-  - Falta de punto y coma
+  - Falta de operador de asignación ❌
+  - Expresiones incompletas 🚫
+  - Números faltantes 🔢
+  - Falta de punto y coma 📝
 ![Interfaz](sintactico.jpg)
-### Máquina de Turing
+
+### Máquina de Turing 🎮
 - **Acepta:**
-  - Cadenas formadas por pares de 'ab'
-  - Ejemplos: `ab;`, `abab;`, `ababab;`
+  - Cadenas formadas por pares de 'ab' ✅
+  - Ejemplos: `ab;`, `abab;`, `ababab;` ✨
 - **Rechaza:**
-  - Cadenas impares
-  - Secuencias incorrectas
-  - Otros caracteres
+  - Cadenas impares ❌
+  - Secuencias incorrectas 🚫
+  - Otros caracteres 💫
 ![Interfaz](turing.jpg)
 
-## 🔧 Características Técnicas
+## 🔧 Características Técnicas 💝
 
 - **Frontend:**
-  - Editor de código interactivo
-  - Resaltado de errores en tiempo real
-  - Diseño responsivo y moderno
-  - Modo oscuro/claro
+  - Editor de código interactivo ✨
+  - Resaltado de errores en tiempo real 🎯
+  - Diseño responsivo y kawaii 🌈
+  - Modo oscuro/claro 🌙☀️
 
 - **Backend:**
-  - Servidor Flask
-  - Analizador léxico personalizado
-  - Parser sintáctico
-  - Simulador de Máquina de Turing
+  - Servidor Flask 🐍
+  - Analizador léxico personalizado 🎨
+  - Parser sintáctico 📝
+  - Simulador de Máquina de Turing 🎮
 
-
-## 🎯 Funcionalidades Principales
+## 🎯 Funcionalidades Principales 🌟
 
 1. **Análisis Léxico:**
-   - Identificación de tokens
-   - Detección de errores léxicos
-   - Resaltado de símbolos no reconocidos
+   - Identificación de tokens ✨
+   - Detección de errores léxicos 🚫
+   - Resaltado de símbolos no reconocidos ❌
 
 2. **Análisis Sintáctico:**
-   - Validación de estructura
-   - Detección de errores de sintaxis
-   - Mensajes de error descriptivos
+   - Validación de estructura ✅
+   - Detección de errores de sintaxis 🚫
+   - Mensajes de error descriptivos 💭
 
 3. **Máquina de Turing:**
-   - Validación de cadenas ab
-   - Visualización de errores
-   - Marcado de posición exacta del error
+   - Validación de cadenas ab ✨
+   - Visualización de errores 🎯
+   - Marcado de posición exacta del error 📍
 
-## 📋 Requisitos del Sistema
+## 📋 Requisitos del Sistema 🎀
 
-- Python 3.13
-- Flask
-- Navegador web moderno
-- Conexión a internet (para CDN de CodeMirror)
+- Python 3.13 🐍
+- Flask 🌸
+- Navegador web moderno 🌐
+- Conexión a internet (para CDN de CodeMirror) 💫
 
-## 🌈 Personalización
+## 🌈 Personalización 💖
 
-El sistema incluye elementos personalizados como:
-- Diseño con tema personalizado
-- Emojis y elementos decorativos
-- Mensajes de error informativos
-- Interfaz intuitiva y amigable
+El sistema incluye elementos super kawaii como:
+- Diseño con tema personalizado y adorable 🎨
+- Emojis y elementos decorativos ✨
+- Mensajes de error informativos y amigables 💭
+- Interfaz intuitiva y kawaii 🌸
 
-## 🤝 Contribuciones
+## 🤝 Contribuciones 🌟
 
-Este proyecto fue desarrollado como parte del curso de Lenguajes y Autómatas I. Las mejoras y sugerencias son bienvenidas.
+Este proyecto fue desarrollado como parte del curso de Lenguajes y Autómatas I. Las mejoras y sugerencias son bienvenidas 💝
 ![Interfaz](conejito.jpg)
+
 ---
-Desarrollado con 💝 por Lucero Enriquez :)
+Desarrollado con 💖 por Lucero Enriquez ✨
