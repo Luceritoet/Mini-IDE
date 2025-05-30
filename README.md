@@ -105,9 +105,11 @@ El Mini IDE Web presenta un diseño super bonito con una paleta de colores en to
 
 ## 🤝 Contribuciones 🌟
 
-Este proyecto fue desarrollado como parte del curso de Lenguajes y Autómatas I. Las mejoras y sugerencias son bienvenidas 💝
+Este proyecto fue desarrollado como parte de la materia de Lenguajes y Autómatas I. Las mejoras y sugerencias son bienvenidas 💝
 
-<img src="conejito.jpg" alt="Interfaz" width="300">
+<p align="center">
+  <img src="conejito.jpg" alt="Interfaz" width="300">
+</p>
 
 ---
 Desarrollado con 💖 por Lucero Enriquez ✨
