@@ -9,6 +9,12 @@ Un IDE web interactivo que implementa análisis léxico, sintáctico y una máqu
 - **Profesor:** Molina Gomez Kevin David 
 - **Semestre:** 6to Semestre
 
+## 🎨 Diseño de Interfaz
+
+El Mini IDE Web presenta un diseño moderno y amigable con una paleta de colores en tonos rosados y morados, creando una experiencia visual única y agradable:
+
+![Interfaz](interfaz.jpg)
+
 ## 🚀 Instrucciones de Ejecución
 
 1. Asegúrate de tener Python 3.13 instalado
@@ -125,6 +131,37 @@ El sistema incluye elementos personalizados como:
 ## 🤝 Contribuciones
 
 Este proyecto fue desarrollado como parte del curso de Lenguajes y Autómatas I. Las mejoras y sugerencias son bienvenidas.
+
+## 📸 Capturas de Pantalla
+
+### Análisis Léxico
+#### ✅ Casos de Éxito
+![Análisis Léxico Exitoso]
+*Ejemplo de tokens reconocidos correctamente*
+
+#### ❌ Casos de Error
+![Error Léxico]
+*Ejemplo de error por símbolos no reconocidos*
+
+### Análisis Sintáctico
+#### ✅ Casos de Éxito
+![Análisis Sintáctico Exitoso]
+*Ejemplo de expresión sintácticamente correcta*
+
+#### ❌ Casos de Error
+![Error Sintáctico]
+*Ejemplo de error por estructura incorrecta*
+
+### Máquina de Turing
+#### ✅ Casos de Éxito
+![Turing Exitoso]
+*Ejemplo de cadena 'ab' válida*
+
+#### ❌ Casos de Error
+![Error Turing]
+*Ejemplo de error en cadena inválida*
+
+[Nota: Reemplaza los espacios entre corchetes con las rutas de tus imágenes]
 
 ---
 Desarrollado con 💝 por Lucero Enriquez :)
