@@ -43,7 +43,7 @@ def lexico():
                     "linea": num_linea
                 })
                 tabla.append(f"Línea {num_linea}:")
-                tabla.append("  ❌ Error: falta punto y coma al final")
+                tabla.append("  Error: falta punto y coma al final")
             else:
                 # Verificar que solo contenga 'a' y 'b' antes del punto y coma
                 cadena = linea[:-1].strip()  # Quitar el punto y coma
@@ -52,7 +52,7 @@ def lexico():
                     tabla.append(f"  CADENA: {cadena}")
                 else:
                     tabla.append(f"Línea {num_linea}:")
-                    tabla.append("  ❌ Error: caracteres no válidos en la cadena")
+                    tabla.append("  Error: caracteres no válidos en la cadena")
         else:
             # Procesar como código normal
             pos_linea = 0
@@ -70,7 +70,7 @@ def lexico():
                         elif tipo == 'ERROR':
                             # Verificar si es un símbolo no reconocido
                             if valor in '@&$':
-                                tokens_linea.append(f"❌ Error: símbolo no reconocido '{valor}'")
+                                tokens_linea.append(f"Error: símbolo no reconocido '{valor}'")
                             else:
                                 tokens_linea.append(f"{tipo}: {valor}")
                         elif tipo == 'PUNTOYCOMA':
@@ -83,9 +83,9 @@ def lexico():
                 if not matched:
                     # Verificar si es un símbolo no reconocido
                     if linea[pos_linea] in '@&$':
-                        tokens_linea.append(f"❌ Error: símbolo no reconocido '{linea[pos_linea]}'")
+                        tokens_linea.append(f"Error: símbolo no reconocido '{linea[pos_linea]}'")
                     else:
-                        tokens_linea.append(f"❌ Error: carácter no reconocido '{linea[pos_linea]}'")
+                        tokens_linea.append(f"Error: carácter no reconocido '{linea[pos_linea]}'")
                     pos_linea += 1
             
             # Si se encontraron tokens en la línea, agregarlos a la tabla
@@ -119,11 +119,12 @@ def sintactico():
 
             # Verificar si es una cadena de a's y b's
             if all(c in 'ab;' for c in linea.replace(' ', '')):
-                mensajes.append("❌ Estructura no reconocida")
+                mensajes.append(f"❌ Error en línea {num_linea}: Las cadenas 'ab' no son válidas")
                 errores.append({
-                    "pos": num_linea,
+                    "pos": 0,
                     "valor": "X",
-                    "linea": num_linea
+                    "linea": num_linea,
+                    "length": len(linea)  # Agregar longitud total para subrayar toda la línea
                 })
                 continue
                 
@@ -133,7 +134,8 @@ def sintactico():
                 errores.append({
                     "pos": len(linea),
                     "valor": ";",
-                    "linea": num_linea
+                    "linea": num_linea,
+                    "tipo": "semicolon"  # Identificar específicamente error de punto y coma
                 })
                 continue
 
@@ -143,10 +145,17 @@ def sintactico():
             # Dividir en partes por el operador de asignación
             if '=' not in linea:
                 mensajes.append(f"❌ Error en línea {num_linea}: Falta el operador de asignación '='")
+                # Encontrar la posición después del identificador
+                match = re.match(r'^[a-dxX]', linea)
+                if match:
+                    pos = 1  # Después del identificador
+                else:
+                    pos = 0
                 errores.append({
-                    "pos": len(linea),
+                    "pos": pos,
                     "valor": "=",
-                    "linea": num_linea
+                    "linea": num_linea,
+                    "tipo": "equals"  # Identificar específicamente error de igual
                 })
                 continue
 
@@ -156,7 +165,7 @@ def sintactico():
 
             # Validar identificador
             if not re.match(r'^[a-dxX]$', identificador):
-                mensajes.append(f"❌ Error en línea {num_linea}: Identificador inválido '{identificador}'. Solo se permiten las letras a-d, x, X")
+                mensajes.append(f"❌ Error en línea {num_linea}: Identificador inválido '{identificador}'. Solo se permiten las letras a-d, x")
                 errores.append({
                     "pos": linea.find(identificador),
                     "valor": "X",
@@ -267,21 +276,38 @@ def analizar_binario(code):
             errores.append({
                 "pos": len(line),
                 "linea": line_num,
-                "valor": "falta ;"
+                "valor": "falta ;",
+                "tipo": "semicolon"
             })
             mensajes.append(f"❌ Error en línea {line_num}: Falta punto y coma al final")
+            mensajes.append(line)
             continue
             
         # Quitar el punto y coma para analizar la cadena
         cadena = line[:-1].strip()
         
+        # Verificar si es una línea de código (contiene '=')
+        if '=' in cadena:
+            mensajes.append(f"❌ Error en línea {line_num}: Las expresiones aritméticas no son válidas")
+            mensajes.append(cadena)
+            errores.append({
+                "pos": 0,
+                "linea": line_num,
+                "valor": "X",
+                "length": len(cadena)
+            })
+            continue
+        
         # Verificar que la cadena sea válida (solo 'ab' repetidos)
         if len(cadena) % 2 != 0:  # La longitud debe ser par
-            mensaje_error = cadena  # No agregamos espacio extra
-            pos_error = len(cadena)  # Posición del error
-            mensaje_error = mensaje_error[:pos_error] + "X"  # Agregamos X al final
-            mensajes.append(f"❌ Error en línea {line_num}: Longitud inválida")
-            mensajes.append(mensaje_error)
+            mensajes.append(f"❌ Error en línea {line_num}: cadena inválida")
+            mensajes.append(cadena)
+            errores.append({
+                "pos": len(cadena) - 1,
+                "linea": line_num,
+                "valor": "X",
+                "length": 1
+            })
             continue
             
         es_valida = True
@@ -293,10 +319,14 @@ def analizar_binario(code):
                 break
                 
         if not es_valida:
-            mensaje_error = cadena  # No agregamos espacio extra
-            mensaje_error = mensaje_error[:pos_error] + "X" + mensaje_error[pos_error+1:]
             mensajes.append(f"❌ Error en línea {line_num}: Estructura inválida")
-            mensajes.append(mensaje_error)
+            mensajes.append(cadena)
+            errores.append({
+                "pos": pos_error,
+                "linea": line_num,
+                "valor": "X",
+                "length": 2
+            })
         else:
             mensajes.append(f"✅ Línea {line_num}: Cadena válida: {cadena}")
     

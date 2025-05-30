@@ -175,11 +175,11 @@ function mostrarResultados(resultado, errores, editor) {
 
     // Crear elemento para mostrar el resultado
     const resultadoElement = document.createElement('div');
-    resultadoElement.className = resultado.includes('❌') ? 'error' : 'success';
+    resultadoElement.className = resultado.includes('Error') ? 'error' : 'success';
     resultadoElement.textContent = resultado;
     resultadosDiv.appendChild(resultadoElement);
 
-    // Marcar errores en el editor
+    // Limpiar marcadores anteriores
     editor.clearGutter('error-gutter');
     editor.getAllMarks().forEach(mark => mark.clear());
 
@@ -190,44 +190,68 @@ function mostrarResultados(resultado, errores, editor) {
             marker.className = 'error-marker';
             marker.innerHTML = '❌';
             
-            if (error.valor === "falta ;") {
+            // Obtener la línea actual
+            const line = editor.getLine(lineaIndex);
+            if (!line) return;
+
+            // Manejar diferentes tipos de errores
+            if (error.length !== undefined) {
+                // Error de cadena 'ab' en análisis sintáctico - subrayar toda la línea
+                marker.title = `Error en línea ${error.linea}: Cadena 'ab' no válida `;
+                editor.setGutterMarker(lineaIndex, 'error-gutter', marker);
+                
+                editor.markText(
+                    {line: lineaIndex, ch: 0},
+                    {line: lineaIndex, ch: error.length},
+                    {className: 'error-line'}
+                );
+            } else if (error.tipo === "semicolon") {
                 // Error de punto y coma faltante
                 marker.title = `Error en línea ${error.linea}: Falta punto y coma al final`;
                 editor.setGutterMarker(lineaIndex, 'error-gutter', marker);
                 
-                const line = editor.getLine(lineaIndex);
-                if (line) {
-                    editor.markText(
-                        {line: lineaIndex, ch: line.length},
-                        {line: lineaIndex, ch: line.length},
-                        {className: 'error-semicolon'}
-                    );
-                }
+                editor.markText(
+                    {line: lineaIndex, ch: line.length},
+                    {line: lineaIndex, ch: line.length},
+                    {className: 'error-semicolon'}
+                );
+            } else if (error.tipo === "equals") {
+                // Error de operador de asignación faltante
+                marker.title = `Error en línea ${error.linea}: Falta operador de asignación`;
+                editor.setGutterMarker(lineaIndex, 'error-gutter', marker);
+                
+                editor.markText(
+                    {line: lineaIndex, ch: error.pos},
+                    {line: lineaIndex, ch: error.pos + 1},
+                    {className: 'error-char'}
+                );
+            } else if (error.valor === "número" || error.valor === "operador") {
+                // Error de número u operador faltante
+                marker.title = `Error en línea ${error.linea}: Falta ${error.valor}`;
+                editor.setGutterMarker(lineaIndex, 'error-gutter', marker);
+
+                editor.markText(
+                    {line: lineaIndex, ch: error.pos},
+                    {line: lineaIndex, ch: error.pos + 1},
+                    {className: 'error-char'}
+                );
             } else {
                 // Otros tipos de errores
                 marker.title = `Error en línea ${error.linea}: ${error.valor}`;
                 editor.setGutterMarker(lineaIndex, 'error-gutter', marker);
 
-                // Si tenemos una posición específica en la línea
                 if (error.pos !== undefined) {
-                    const lineStart = editor.indexFromPos({line: lineaIndex, ch: 0});
-                    const posInLine = error.pos - lineStart;
-                    
                     editor.markText(
-                        {line: lineaIndex, ch: posInLine},
-                        {line: lineaIndex, ch: posInLine + 1},
+                        {line: lineaIndex, ch: error.pos},
+                        {line: lineaIndex, ch: error.pos + 1},
                         {className: 'error-char'}
                     );
                 } else {
-                    // Si no hay posición específica, marcar toda la línea
-                    const line = editor.getLine(lineaIndex);
-                    if (line) {
-                        editor.markText(
-                            {line: lineaIndex, ch: 0},
-                            {line: lineaIndex, ch: line.length},
-                            {className: 'error-line'}
-                        );
-                    }
+                    editor.markText(
+                        {line: lineaIndex, ch: 0},
+                        {line: lineaIndex, ch: line.length},
+                        {className: 'error-line'}
+                    );
                 }
             }
         });

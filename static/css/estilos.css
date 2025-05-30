@@ -226,11 +226,13 @@ button:hover {
 .error-line {
     background-color: rgba(214, 51, 132, 0.1);
     border-bottom: 2px wavy #d63384;
+    position: relative;
 }
 
 .error-char {
     background-color: rgba(214, 51, 132, 0.3);
     border-bottom: 2px solid #d63384;
+    position: relative;
 }
 
 .error-semicolon {

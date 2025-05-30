@@ -14,6 +14,7 @@ Un IDE web interactivo que implementa análisis léxico, sintáctico y una máqu
 El Mini IDE Web presenta un diseño moderno y amigable con una paleta de colores en tonos rosados y morados, creando una experiencia visual única y agradable:
 
 ![Interfaz](interfaz.jpg)
+![Interfaz](interfaz2.jpg)
 
 ## 🚀 Instrucciones de Ejecución
 
@@ -38,9 +39,8 @@ El Mini IDE Web presenta un diseño moderno y amigable con una paleta de colores
   - Delimitadores: `;`
 - **Errores léxicos:**
   - Símbolos no reconocidos: `@, &, $`
-  - Expresiones sin punto y coma
   - Caracteres inválidos
-
+![Interfaz](lexico.jpg)
 ### Análisis Sintáctico
 - **Gramática:**
   ```
@@ -54,7 +54,7 @@ El Mini IDE Web presenta un diseño moderno y amigable con una paleta de colores
   - Expresiones incompletas
   - Números faltantes
   - Falta de punto y coma
-
+![Interfaz](sintactico.jpg)
 ### Máquina de Turing
 - **Acepta:**
   - Cadenas formadas por pares de 'ab'
@@ -63,23 +63,7 @@ El Mini IDE Web presenta un diseño moderno y amigable con una paleta de colores
   - Cadenas impares
   - Secuencias incorrectas
   - Otros caracteres
-
-## 💡 Ejemplos
-
-### Entradas Válidas
-```
-x = 5 + 3;
-a = 42 * 7;
-abab;
-```
-
-### Entradas Inválidas
-```
-x = + 3;     // Error: falta número antes del operador
-y = 5 + ;    // Error: falta número después del operador
-abba;        // Error: secuencia inválida en Turing
-x @ 3;       // Error: símbolo no reconocido
-```
+![Interfaz](turing.jpg)
 
 ## 🔧 Características Técnicas
 
@@ -131,37 +115,6 @@ El sistema incluye elementos personalizados como:
 ## 🤝 Contribuciones
 
 Este proyecto fue desarrollado como parte del curso de Lenguajes y Autómatas I. Las mejoras y sugerencias son bienvenidas.
-
-## 📸 Capturas de Pantalla
-
-### Análisis Léxico
-#### ✅ Casos de Éxito
-![Análisis Léxico Exitoso]
-*Ejemplo de tokens reconocidos correctamente*
-
-#### ❌ Casos de Error
-![Error Léxico]
-*Ejemplo de error por símbolos no reconocidos*
-
-### Análisis Sintáctico
-#### ✅ Casos de Éxito
-![Análisis Sintáctico Exitoso]
-*Ejemplo de expresión sintácticamente correcta*
-
-#### ❌ Casos de Error
-![Error Sintáctico]
-*Ejemplo de error por estructura incorrecta*
-
-### Máquina de Turing
-#### ✅ Casos de Éxito
-![Turing Exitoso]
-*Ejemplo de cadena 'ab' válida*
-
-#### ❌ Casos de Error
-![Error Turing]
-*Ejemplo de error en cadena inválida*
-
-[Nota: Reemplaza los espacios entre corchetes con las rutas de tus imágenes]
-
+![Interfaz](conejito.jpg)
 ---
 Desarrollado con 💝 por Lucero Enriquez :)
